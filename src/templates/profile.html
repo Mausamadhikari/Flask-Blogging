@@ -1,0 +1,8 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="collapse navbar-collapse" id="navcol-1"><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="{{ url_for('user_blogs') }}" style="background-color:#aedc8a;">{{email}}'s Blog</a></span>
+</div>
+    <h1>Hello {{ email }}</h1>
+
+{% endblock %}

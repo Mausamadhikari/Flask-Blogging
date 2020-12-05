@@ -1,0 +1,44 @@
+<nav class="navbar navbar-default">
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{{ url_for('home_template') }}">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="{{ url_for('all_blogs') }}">Blog</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('register_template') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a></li>
+        <li><a href="{{ url_for('login_template') }}"><i class="fa fa-user" aria-hidden="true"></i> Login</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container -->
+</nav>
+<!--
+
+<div class=".navbar.navbar-default.navbar-static-top">
+	<div class="navbar-header">
+		<ul class="nav nav-pills">
+			<li><a href="">Home</a></li>
+			<li><a href="">register</a></li>
+			<li><a href=">Login</a></li>
+
+		</ul>
+
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</div>
+	<div class="navbar-collapse collapse" id="navbar-main">
+		<ul class="nav navbar-nav">
+			<li><a href="{{ url_for('create_new_blog') }}">Create Blog</a></li>
+			<li><a href="">Blog</a></li>
+			<li><a href="">User Blog</a></li>
+
+		</ul>
+	</div>
+</div>
+
+-->
