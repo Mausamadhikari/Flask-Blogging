@@ -1,10 +1,4 @@
 import pymongo
-
-#client = pymongo.MongoClient("mongodb+srv://dbadmin:dbadmin@cluster0.x710q.mongodb.net/educationalapp?retryWrites=true&w=majority")
-#db = client.test
-
-
-
 class Database(object):
 
     URI = "mongodb+srv://dbadmin:dbadmin@cluster0.x710q.mongodb.net/educationalapp?retryWrites=true&w=majority"
