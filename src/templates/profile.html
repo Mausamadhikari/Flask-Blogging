@@ -1,7 +1,9 @@
 
 {% extends "base.html" %}
 {% block content %}
-<div class="collapse navbar-collapse" id="navcol-1"><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="{{ url_for('user_blogs') }}" style="background-color:#aedc8a;">{{email}}'s Blog</a></span>
+<div class="collapse navbar-collapse" style="margin-top:5%" id="navcol-1"><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="{{ url_for('user_blogs') }}" style="background-color:#aedc8a;">{{email}}'s Blog</a></span>
+</div>
+<div class="collapse navbar-collapse" style="margin-top:-5%" id="navcol-1"><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="{{ url_for('create_new_blog') }}" style="background-color:#aedc8a;">Create New {{email}}'s Blog</a></span>
 </div>
     <h1>Hello {{ email }}</h1>
 
