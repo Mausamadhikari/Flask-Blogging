@@ -7,15 +7,16 @@
         <li><a href="#about">About</a></li>
         <li><a href="{{ url_for('all_blogs') }}">Blog</a></li>
       </ul>
-        {% if session['email'] != 'None' %}
+    {% if session['email'] %}
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('profile') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> profile</a></li>
+            <li><a href="{{ url_for('signout') }}"><i class="fa fa-user" aria-hidden="true"></i> Logout</a></li>
+        </ul>
+    {% else %}
         <ul class="nav navbar-nav navbar-right">
         <li><a href="{{ url_for('register_template') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a></li>
         <li><a href="{{ url_for('login_template') }}"><i class="fa fa-user" aria-hidden="true"></i> Login</a></li>
       </ul>
-    {% else %}
-        <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{ url_for('home_template') }}"><i class="fa fa-user" aria-hidden="true"></i> Logout</a></li>
-        </ul>
     {% endif %}
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->

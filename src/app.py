@@ -10,6 +10,9 @@ app = Flask(__name__)  # '__main__'
 app.secret_key = "mausam"
 
 
+email= None
+
+
 @app.route('/')
 def home_template():
     return render_template('main.html')
@@ -25,6 +28,13 @@ def login_template():
 def register_template():
     return render_template('register.html')
 
+@app.route('/signout')
+def signout():
+    try:
+        session.pop('email',None)
+    finally:
+        return render_template('main.html')
+
 
 @app.before_first_request
 def initialize_database():
@@ -39,7 +49,8 @@ def login_user():
     if User.login_valid(email, password):
         User.login(email)
     else:
-        session['email'] = None
+        session['email'] = True
+        return render_template('main.html')
 
     return render_template('profile.html', email=session['email'])
 
@@ -52,6 +63,14 @@ def register_user():
     User.register(email, password)
 
     return render_template('profile.html', email=session['email'])
+
+@app.route('/profile',methods=['GET'])
+def profile():
+    try:
+        email=session['email']
+        return render_template('profile.html', email=email)
+    except KeyError:
+        return render_template('main.html')
 
 
 @app.route('/blogs/<string:user_id>')
@@ -136,6 +155,5 @@ def create_new_post(blog_id):
 
         return make_response(blog_posts(blog_id))
 
-
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
