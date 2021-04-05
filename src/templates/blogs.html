@@ -3,6 +3,7 @@
 <div class="container">
     {% for blog in blogs %}
         <h3><a href="/posts/{{ blog._id }}">{{ blog.title }}</a></h3>
+        <p>posted by {{ blog.author }}</p>
         <p>{{ blog.description }}</p>
         <hr>
     {% endfor %}

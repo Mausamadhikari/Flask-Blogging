@@ -1,12 +1,52 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
 
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="{{ url_for('home_template') }}">Your Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="{{ url_for('home_template') }}">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="{{ url_for('all_blogs') }}">Blog</a></li>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="active" ><button class="btn btn-outline-success" type="button"><a href="{{ url_for('home_template') }}">Home</a></button></li>
+        <li><button class="btn btn-outline-success" type="button"><a href="#about">About</a></button></li>
+        <li><button class="btn btn-outline-success" type="button"><a href="{{ url_for('all_blogs') }}">All Posts</a></button></li>
+          <li><button class="btn btn-outline-success" type="button"><a href="{{ url_for('all_users') }}">All Users</a></button></li>
       </ul>
+    {% if session['email'] %}
+        <ul class="nav navbar-nav navbar-right">
+        <li><button class="btn btn-outline-success" type="button"><a href="{{ url_for('profile') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> profile</a></button></li>
+            <li><button class="btn btn-outline-success" type="button"><a href="{{ url_for('signout') }}"><i class="fa fa-user" aria-hidden="true"></i> Logout</a></button></li>
+        </ul>
+    {% else %}
+        <ul class="nav navbar-nav navbar-right">
+            <li><button class="btn btn-outline-success" type="button"><a href="{{ url_for('register_template') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a></button></li>
+        <li><button class="btn btn-outline-success" type="button"><a href="{{ url_for('login_template') }}"><i class="fa fa-user" aria-hidden="true"></i> Login</a></button></li>
+      </ul>
+    {% endif %}
+    </div><!-- /.navbar-collapse -->
+    <!-- /.container -->
+</nav>
+
+<!--
+<div class=".navbar.navbar-default.navbar-static-top">
+	<div class="navbar-header">
+		<ul class="nav nav-pills">
+			<li><a href="{{ url_for('home_template') }}">Home</a></li>
+			<li><a href="">register</a></li>
+			<li><a href="">Login</a></li>
+
+		</ul>
+
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</div>
     {% if session['email'] %}
         <ul class="nav navbar-nav navbar-right">
         <li><a href="{{ url_for('profile') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> profile</a></li>
@@ -18,26 +58,6 @@
         <li><a href="{{ url_for('login_template') }}"><i class="fa fa-user" aria-hidden="true"></i> Login</a></li>
       </ul>
     {% endif %}
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container -->
-</nav>
-<!--
-
-<div class=".navbar.navbar-default.navbar-static-top">
-	<div class="navbar-header">
-		<ul class="nav nav-pills">
-			<li><a href="">Home</a></li>
-			<li><a href="">register</a></li>
-			<li><a href=">Login</a></li>
-
-		</ul>
-
-		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-	</div>
 	<div class="navbar-collapse collapse" id="navbar-main">
 		<ul class="nav navbar-nav">
 			<li><a href="{{ url_for('create_new_blog') }}">Create Blog</a></li>
@@ -49,3 +69,4 @@
 </div>
 
 -->
+

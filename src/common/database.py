@@ -1,7 +1,8 @@
 import pymongo
+from src.secrets.secrets import DATABASE_API
 class Database(object):
 
-    URI = "mongodb+srv://dbadmin:dbadmin@cluster0.x710q.mongodb.net/educationalapp?retryWrites=true&w=majority"
+    URI = DATABASE_API
     DATABASE = ""
 
     @staticmethod
@@ -11,6 +12,7 @@ class Database(object):
         """
         client = pymongo.MongoClient(Database.URI)
         Database.DATABASE = client['fullstack']
+        print('DataBase initialized')
 
     @staticmethod
     def insert(collection, data):
@@ -20,6 +22,10 @@ class Database(object):
         :param data:
         """
         Database.DATABASE[collection].insert(data)
+
+    @staticmethod
+    def update_one(collection,filter,data):
+        Database.DATABASE[collection].update_one(filter,data)
 
     @staticmethod
     def find(collection, query):

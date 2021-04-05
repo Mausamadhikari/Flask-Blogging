@@ -1,6 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/pycharm,flask,venv,git
 # Edit at https://www.toptal.com/developers/gitignore?templates=pycharm,flask,venv,git
-
+secrets/*
 ### Flask ###
 instance/*
 !instance/.gitignore

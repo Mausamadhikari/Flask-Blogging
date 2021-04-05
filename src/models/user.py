@@ -66,6 +66,22 @@ class User(object):
         else:
             return False
 
+    @classmethod
+    def updateprofile(cls, email, name):
+        """
+        update profile
+        """
+        user = User.get_by_email(email)
+        filters = {
+            "email": session['email']
+        }
+        data = {
+            "$set": {
+                "name": name
+            }
+        }
+        user.update_to_mongo(filters, data)
+
     @staticmethod
     def login(user_email):
         """

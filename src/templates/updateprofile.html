@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container page-form">
+    <form id="login-form" action="/auth/updateProfile" method="post">
+        <div class="page-header">
+            <h5>Update Profile</h5>
+        </div>
+        <!--
+        <div class="upload">
+            <label for="profilepicture"><h3>Profile picture</h3></label>
+            <p>
+                Choose Profile Picture for your account
+            </p>
+            <input type="file" id="profilepicture"  name="profilepicture">
+        </div>
+        -->
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" class = "form-control" name="name" autocomplete="on" required>
+        </div>
+
+
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+</div>
+{% endblock %}

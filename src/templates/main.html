@@ -4,11 +4,18 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<div id="content">
-				<h1>Educational Hub</h1>
-        <h3>Sharing Is Caring.<br /><br />Share Your ideas and knowledge to others <br /> So you can learn more.<br />
-          And get better everyday.</h3>
-				<hr />
-			</div>
+				<h1>Your Blog</h1>
+        <h3>Sharing Is Caring.<br />
+			{% if session['email'] %}
+        <ul class="nav navbar-nav navbar-right">
+        <li><button class="btn btn-outline-success" type="button"><a href="{{ url_for('profile') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> profile</a></button></li>
+        </ul>
+    {% else %}
+        <ul class="nav navbar-nav navbar-right">
+        <li><button class="btn btn-outline-success" type="button"><a href="{{ url_for('register_template') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a></button></li>
+        <li><button class="btn btn-outline-success" type="button"><a href="{{ url_for('login_template') }}"><i class="fa fa-user" aria-hidden="true"></i> Login</a></button></li>
+      </ul>
+    {% endif %}
 		</div>
 	</div>
 </div>

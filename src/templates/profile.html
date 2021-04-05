@@ -1,10 +1,30 @@
 
 {% extends "base.html" %}
 {% block content %}
-<div class="collapse navbar-collapse" style="margin-top:5%" id="navcol-1"><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="{{ url_for('user_blogs') }}" style="background-color:#aedc8a;">{{email}}'s Blog</a></span>
+<div class="btn btn-outline-success" style="margin-top:5%" id="naval-1"><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="{{ url_for('user_blogs') }}" style="background-color:#aedc8a;">My post</a></span>
 </div>
-<div class="collapse navbar-collapse" style="margin-top:-5%" id="navcol-1"><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="{{ url_for('create_new_blog') }}" style="background-color:#aedc8a;">Create New {{email}}'s Blog</a></span>
+<div class="btn btn-outline-success" style="margin-top:5%" id="naval-2"><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="{{ url_for('create_new_blog') }}" style="background-color:#aedc8a;">New Post</a></span>
 </div>
-    <h1>Hello {{ email }}</h1>
+<div class="btn btn-outline-success" style="margin-top:5%" id="naval-3"><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="{{ url_for('profile') }}" style="background-color:#aedc8a;">My Profile</a></span>
+</div>
+<div class="btn btn-outline-success" style="margin-top:5%" id="naval-4"><span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="{{ url_for('updateprofile_template') }}" style="background-color:#aedc8a;">Update Profile</a></span>
+</div>
+
+<!--
+This is a button to update profile of user
+<button class="btn btn-outline-success" type="button"><a href="{{ url_for('updateprofile_template') }}">Update Profile</a></button>
+-->
+
+
+    <h1>Hello {{ user.email }}</h1>
+    <h2>Your Details Are as follows:</h2>
+            <h3>{{ user.name }}</h3>
+            <p>{{ user.phone }}</p>
+            <p>{{ user.qualification }}</p>
+            <p>{{ user.location }}</p>
+            <p>{{ user.teachingexperience }}</p>
+            <p>{{ user.preferredtime }}</p>
+            <hr>
+
 
 {% endblock %}

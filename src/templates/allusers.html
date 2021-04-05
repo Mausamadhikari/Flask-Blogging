@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    {% for u in users %}
+            <h3>{{ u.name }}</h3>
+            <h3><a href="/blogs/{{ u._id }}">{{ u.email }}</a></h3>
+            <p>{{ u.phone }}</p>
+            <p>{{ u.qualification }}</p>
+            <p>{{ u.location }}</p>
+            <p>{{ u.teaching_experience }}</p>
+            <p>{{ u.preferred_time }}</p>
+            <hr>
+        {% endfor %}
+</div>
+{% endblock %}
